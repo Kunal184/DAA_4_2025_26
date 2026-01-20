@@ -9,6 +9,21 @@ struct ListNode {
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
+//Solution->
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+        ListNode *slow = head;
+        ListNode *fast = head;
+        while (fast && fast->next) {
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        return slow;
+    }
+};
+
+
 void insertAtEnd(ListNode*& head, int val) {
     ListNode* newNode = new ListNode(val);
 
@@ -24,20 +39,6 @@ void insertAtEnd(ListNode*& head, int val) {
 
     temp->next = newNode;
 }
-
-//Solution->
-class Solution {
-public:
-    ListNode* middleNode(ListNode* head) {
-        ListNode *slow = head;
-        ListNode *fast = head;
-        while (fast && fast->next) {
-            slow = slow->next;
-            fast = fast->next->next;
-        }
-        return slow;
-    }
-};
 
 int main() {
     ListNode* head = nullptr;
