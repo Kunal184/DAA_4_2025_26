@@ -6,7 +6,6 @@ int heapSize = 0;
 
 void heapifyUp(int index) {
     if (index == 0) return;
-
     int parent = (index - 1) / 2;
     if (heap[index] < heap[parent]) {
         swap(heap[index], heap[parent]);
